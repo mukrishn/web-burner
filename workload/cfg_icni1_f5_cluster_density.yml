@@ -14,20 +14,8 @@ global:
     type: elastic
 
 jobs:
-  # - name: delete-networks-job
-  #  jobType: delete
-  #  namespace: openshift-sriov-network-operator
-  #  objects:
-  #  - kind: SriovNetwork
-  #    labelSelector: {kube-burner-job: create-networks-job}
-
-  # - name: delete-init-pods-job
-  #   jobType: delete
-  #   objects:
-  #   - kind: Pod
-  #     labelSelector: {kube-burner-job: init-job}
-        
-{{ $normalLimit := multiply 35 .SCALE }}
+       
+{{ $normalLimit := multiply 35 $.SCALE }}
 {{ range $index, $val := sequence 1 $normalLimit }}
   - name: job-{{ $val }}
     jobType: create
@@ -65,9 +53,9 @@ jobs:
 
   - name: app-job-1
     jobType: create
-    jobIterations: {{ multiply 2 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 2 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: f5-served-ns 
@@ -108,9 +96,9 @@ jobs:
 
   - name: app-job-2
     jobType: create
-    jobIterations: {{ multiply 2 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 2 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: f5-served-ns 
@@ -144,9 +132,9 @@ jobs:
 
   - name: app-job-3
     jobType: create
-    jobIterations: {{ multiply 2 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 2 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: f5-served-ns 
@@ -189,9 +177,9 @@ jobs:
 
   - name: app-job-4
     jobType: create
-    jobIterations: {{ multiply 2 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 2 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: f5-served-ns 
@@ -234,9 +222,9 @@ jobs:
 
   - name: app-job-5
     jobType: create
-    jobIterations: {{ multiply 2 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 2 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: f5-served-ns 

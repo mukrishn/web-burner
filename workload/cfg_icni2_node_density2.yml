@@ -105,8 +105,8 @@ jobs:
   - name: served-job-{{ $servedLimit }}
     jobType: create
     jobIterations: 1
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: false
     cleanup: false
     namespace: served-ns-{{ $servedLimit }}

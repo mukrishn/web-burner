@@ -15,13 +15,13 @@ global:
 
 jobs:
 
-{{ $normalLimit := multiply 35 .SCALE }}
+{{ $normalLimit := multiply 35 $.SCALE }}
 {{ range $index, $val := sequence 1 $normalLimit }}
   - name: job-{{ $val }}
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: false
     cleanup: false
     namespace: f5-served-ns-{{ $val }} 
@@ -53,9 +53,9 @@ jobs:
 
   - name: app-job-1
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: f5-served-ns 
@@ -96,9 +96,9 @@ jobs:
 
   - name: app-job-2
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: f5-served-ns 
@@ -132,9 +132,9 @@ jobs:
 
   - name: app-job-3
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: f5-served-ns 
@@ -177,9 +177,9 @@ jobs:
 
   - name: app-job-4
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: f5-served-ns
@@ -222,9 +222,9 @@ jobs:
 
   - name: app-job-5
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: f5-served-ns 
@@ -247,7 +247,7 @@ jobs:
           ns: group-l-{{ $val }}                   
 {{ end }}
         
-{{ $servedLimit := multiply 35 .SCALE }}
+{{ $servedLimit := multiply 35 $.SCALE }}
 {{ range $index, $val := sequence 1 $servedLimit }}
   - name: job-2-{{ $val }}
     jobType: create
@@ -279,9 +279,9 @@ jobs:
 
   - name: app-job-2-1
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: served-ns
@@ -322,9 +322,9 @@ jobs:
 
   - name: app-job-2-2
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: served-ns
@@ -358,9 +358,9 @@ jobs:
 
   - name: app-job-2-3
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: served-ns
@@ -403,9 +403,9 @@ jobs:
 
   - name: app-job-2-4
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: served-ns
@@ -448,9 +448,9 @@ jobs:
 
   - name: app-job-2-5
     jobType: create
-    jobIterations: {{ multiply 1 .SCALE }}
-    qps: {{ .QPS }}
-    burst: {{ .BURST }}
+    jobIterations: {{ multiply 1 $.SCALE }}
+    qps: {{ $.QPS }}
+    burst: {{ $.BURST }}
     namespacedIterations: true
     cleanup: false
     namespace: served-ns
